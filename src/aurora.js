@@ -1,7 +1,7 @@
 /**
- * Aurora Background Shader Engine
- * Emulates the Studio design system aurora:
- * Near-black canvas with a slow, organic mesh gradient swirling subtly in the background.
+ * Studio Monochrome Aurora Engine
+ * Slow, subtle grayscale ambient mesh inspired directly by Skills UI Studio.
+ * Near-black canvas with ethereal silver/charcoal motion.
  */
 
 export async function initAurora() {
@@ -10,7 +10,6 @@ export async function initAurora() {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Attempt to load @paper-design/shaders if online
   let loadedShaderMount = false;
   try {
     const { ShaderMount, meshGradientFragmentShader, getShaderColorFromString } =
@@ -20,9 +19,9 @@ export async function initAurora() {
     const sheenEl = document.getElementById('aurora-sheen');
 
     if (fieldEl && sheenEl) {
-      // Subtle palette: Near-black with deep cosmic indigo, emerald teal & violet undertones
-      const field = ['#030305', '#161d2f', '#0d1822', '#221933', '#0a0d14'];
-      const sheen = ['#000000', '#1a3344', '#32254d'];
+      // Exact monochrome palette from Studio preview
+      const field = ['#050507', '#4a4a54', '#1e1e24', '#383842', '#0d0d10'];
+      const sheen = ['#000000', '#5c5c68', '#26262c'];
 
       const sizing = {
         u_fit: 2,
@@ -49,7 +48,7 @@ export async function initAurora() {
           ...sizing
         },
         undefined,
-        reduceMotion ? 0 : 0.25,
+        reduceMotion ? 0 : 0.22,
         0
       );
 
@@ -66,7 +65,7 @@ export async function initAurora() {
           ...sizing
         },
         undefined,
-        reduceMotion ? 0 : 0.18,
+        reduceMotion ? 0 : 0.16,
         0
       );
 
@@ -76,13 +75,12 @@ export async function initAurora() {
     console.info('[aurora] ShaderMount remote load skipped/fallback:', err.message);
   }
 
-  // High-performance canvas fallback if shader library is unavailable or offline
   if (!loadedShaderMount) {
-    initCanvasAuroraFallback(container, reduceMotion);
+    initCanvasAuroraGrayscaleFallback(container, reduceMotion);
   }
 }
 
-function initCanvasAuroraFallback(container, reduceMotion) {
+function initCanvasAuroraGrayscaleFallback(container, reduceMotion) {
   const canvas = document.createElement('canvas');
   canvas.id = 'aurora-canvas-fallback';
   container.appendChild(canvas);
@@ -96,39 +94,37 @@ function initCanvasAuroraFallback(container, reduceMotion) {
     height = canvas.height = window.innerHeight;
   });
 
-  // Aurora wave points
   let time = 0;
-  const speed = reduceMotion ? 0 : 0.0006;
+  const speed = reduceMotion ? 0 : 0.00045;
 
   function render() {
     time += speed;
 
-    // Clear with near black
-    ctx.fillStyle = '#020204';
+    ctx.fillStyle = '#050507';
     ctx.fillRect(0, 0, width, height);
 
-    // Dynamic gradient blobs
+    // Subtle monochrome wave blobs
     const blobs = [
       {
-        x: width * 0.45 + Math.sin(time * 1.2) * (width * 0.25),
-        y: height * 0.35 + Math.cos(time * 0.9) * (height * 0.2),
+        x: width * 0.45 + Math.sin(time * 1.1) * (width * 0.2),
+        y: height * 0.35 + Math.cos(time * 0.9) * (height * 0.18),
         radius: Math.max(width, height) * 0.65,
-        color1: 'rgba(28, 48, 68, 0.45)', // subtle deep cyan/teal
-        color2: 'rgba(2, 2, 4, 0)'
+        color1: 'rgba(92, 92, 104, 0.18)',
+        color2: 'rgba(5, 5, 7, 0)'
       },
       {
-        x: width * 0.65 + Math.cos(time * 1.5) * (width * 0.3),
-        y: height * 0.6 + Math.sin(time * 1.1) * (height * 0.25),
-        radius: Math.max(width, height) * 0.75,
-        color1: 'rgba(46, 32, 74, 0.4)', // subtle deep violet
-        color2: 'rgba(2, 2, 4, 0)'
+        x: width * 0.62 + Math.cos(time * 1.3) * (width * 0.25),
+        y: height * 0.58 + Math.sin(time * 1.0) * (height * 0.2),
+        radius: Math.max(width, height) * 0.72,
+        color1: 'rgba(64, 64, 76, 0.16)',
+        color2: 'rgba(5, 5, 7, 0)'
       },
       {
-        x: width * 0.3 + Math.sin(time * 0.8) * (width * 0.2),
-        y: height * 0.75 + Math.cos(time * 1.3) * (height * 0.2),
+        x: width * 0.3 + Math.sin(time * 0.7) * (width * 0.18),
+        y: height * 0.72 + Math.cos(time * 1.2) * (height * 0.18),
         radius: Math.max(width, height) * 0.55,
-        color1: 'rgba(20, 36, 48, 0.35)', // subtle deep ocean
-        color2: 'rgba(2, 2, 4, 0)'
+        color1: 'rgba(75, 75, 88, 0.14)',
+        color2: 'rgba(5, 5, 7, 0)'
       }
     ];
 

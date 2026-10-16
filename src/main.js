@@ -1,23 +1,23 @@
 /**
  * Matías Olivera — Portfolio Main Controller
- * Handles animations, intersection observers, tabs, terminal runner, and wordmark parallax.
+ * Handles animations, intersection observers, test runner, and wordmark parallax.
  */
 
 import { initAurora } from './aurora.js';
-import { initTerminalSimulator } from './terminalSimulation.js';
+import { initTestRunner } from './testRunner.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Background Aurora
+  // 1. Initialize Monochrome Aurora Background
   initAurora();
 
-  // 2. Initialize Interactive Terminal Runner
-  initTerminalSimulator();
+  // 2. Initialize Virtual Browser Test Runner
+  initTestRunner();
 
   // 3. Sticky Header Scroll State
   const nav = document.getElementById('nav');
   if (nav) {
     const handleScroll = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
+      nav.classList.toggle('scrolled', window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const parent = entry.target.parentElement;
         const siblings = parent ? [...parent.querySelectorAll('.reveal')] : [];
         const index = siblings.indexOf(entry.target);
-        entry.target.style.transitionDelay = `${Math.min(index * 70, 350)}ms`;
+        entry.target.style.transitionDelay = `${Math.min(index * 60, 300)}ms`;
         entry.target.classList.add('in-view');
         revealObserver.unobserve(entry.target);
       });
@@ -51,12 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = entry.target;
         const target = parseFloat(el.dataset.count);
         const suffix = el.dataset.suffix || '';
-        const duration = 1600;
+        const duration = 1400;
         const startTime = performance.now();
 
         function step(now) {
           const progress = Math.min((now - startTime) / duration, 1);
-          // Ease-out cubic
           const eased = 1 - Math.pow(1 - progress, 3);
           const current = Math.round(target * eased);
           el.textContent = current + suffix;
@@ -77,25 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   counterElements.forEach((el) => countObserver.observe(el));
 
-  // 6. QA Artifacts Tab Navigation
-  const artifactBtns = document.querySelectorAll('.artifact-btn');
-  const artifactContents = document.querySelectorAll('.artifact-content');
-
-  artifactBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      artifactBtns.forEach((b) => b.classList.remove('active'));
-      artifactContents.forEach((c) => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      const targetId = `artifact-${btn.dataset.tab}`;
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) {
-        targetContent.classList.add('active');
-      }
-    });
-  });
-
-  // 7. Giant Footer Wordmark Parallax
+  // 6. Giant Footer Wordmark Parallax
   const wordmark = document.getElementById('wordmark');
   if (wordmark && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener(
@@ -104,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = wordmark.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-          const offset = (0.5 - progress) * 50;
+          const offset = (0.5 - progress) * 40;
           wordmark.style.transform = `translateY(${offset}px)`;
         }
       },
@@ -112,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // 8. Clipboard Copy for Direct Email
+  // 7. Clipboard Copy for Direct Email
   const emailBox = document.getElementById('copy-email-box');
   const emailText = document.getElementById('email-text');
   const copyFeedback = document.getElementById('copy-feedback');
@@ -124,14 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         copyFeedback.style.display = 'inline';
         setTimeout(() => {
           copyFeedback.style.display = 'none';
-        }, 2200);
+        }, 2000);
       } catch (err) {
         console.warn('Clipboard write error:', err);
       }
     });
   }
 
-  // 9. Message Composer Form Submission
+  // 8. Message Composer Form Submission
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {

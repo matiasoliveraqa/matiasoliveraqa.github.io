@@ -1,0 +1,14 @@
+{
+  "name": "matias-olivera-qa-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Matías Olivera - Senior QA Automation Engineer & SDET",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

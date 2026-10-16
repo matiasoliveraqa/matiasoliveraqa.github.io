@@ -37,11 +37,11 @@ npm run preview
 
 ## 🌐 Deploying to GitHub Pages (Free & Instant)
 
-Since your GitHub account is `kraperped`:
+Since your GitHub account is `matiasoliveraqa`:
 
-1. Create a repository on GitHub named `portfolio` (or `kraperped.github.io` for a root domain):
+1. Create a repository on GitHub named `portfolio` (or `matiasoliveraqa.github.io` for a root domain):
 ```bash
-git remote add origin git@github.com:kraperped/portfolio.git
+git remote add origin git@github.com:matiasoliveraqa/portfolio.git
 git branch -M main
 git push -u origin main
 ```

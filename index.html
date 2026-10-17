@@ -82,38 +82,53 @@
       <!-- ================= STATS / IMPACT ================= -->
       <section id="metrics" class="wrap">
         <div class="eyebrow reveal">01 · MEASURED IMPACT</div>
-        <div class="stats">
-          <div class="stat-card reveal">
-            <div class="sc-top">
-              <span class="sc-idx">01</span>
-              <span class="sc-label">Enterprise Experience</span>
+        <div class="metrics-bar reveal">
+          <!-- Metric 1 -->
+          <div class="metric-cell">
+            <div class="metric-cell-top">
+              <span class="metric-tag">01 / SENIORITY</span>
+              <span class="metric-arrow">↗</span>
             </div>
-            <div class="sc-bottom">
-              <span class="sc-num" data-count="7" data-suffix="+">7+</span>
-              <span class="sc-arrow">↗</span>
+            <div class="metric-value-wrap">
+              <span class="metric-val" data-count="7" data-suffix="+">7+</span>
+              <span class="metric-unit">Years</span>
             </div>
+            <h3 class="metric-title">Enterprise QA &amp; SDET</h3>
+            <p class="metric-desc">
+              Specialized in scalable test automation architectures, CI/CD quality gates, and high-concurrency Fintech platforms.
+            </p>
           </div>
 
-          <div class="stat-card reveal">
-            <div class="sc-top">
-              <span class="sc-idx">02</span>
-              <span class="sc-label">Regression Runtime Reduction</span>
+          <!-- Metric 2 -->
+          <div class="metric-cell">
+            <div class="metric-cell-top">
+              <span class="metric-tag">02 / EFFICIENCY</span>
+              <span class="metric-arrow">↗</span>
             </div>
-            <div class="sc-bottom">
-              <span class="sc-num" data-count="70" data-suffix="%">70%</span>
-              <span class="sc-arrow">↗</span>
+            <div class="metric-value-wrap">
+              <span class="metric-val" data-count="70" data-suffix="%">70%</span>
+              <span class="metric-unit">Faster</span>
             </div>
+            <h3 class="metric-title">Regression Cycle Reduction</h3>
+            <p class="metric-desc">
+              Transitioned multi-hour manual regression passes into parallelized Playwright execution pipelines in GitHub Actions.
+            </p>
           </div>
 
-          <div class="stat-card reveal">
-            <div class="sc-top">
-              <span class="sc-idx">03</span>
-              <span class="sc-label">Automated &amp; Managed Tests</span>
+          <!-- Metric 3 -->
+          <div class="metric-cell">
+            <div class="metric-cell-top">
+              <span class="metric-tag">03 / COVERAGE</span>
+              <span class="metric-arrow">↗</span>
             </div>
-            <div class="sc-bottom">
-              <span class="sc-num" data-count="500" data-suffix="+">500+</span>
-              <span class="sc-arrow">↗</span>
+            <div class="metric-value-wrap">
+              <span class="metric-val" data-count="500" data-suffix="+">500+</span>
+              <span class="metric-unit">Tests</span>
             </div>
+            <h3 class="metric-title">Automated E2E &amp; API Suites</h3>
+            <p class="metric-desc">
+              Production-grade test cases maintained in Allure TestOps and Newman, enforcing zero-defect release confidence.
+            </p>
           </div>
         </div>
       </section>
@@ -298,60 +313,140 @@
       <!-- ================= WORK EXPERIENCE ================= -->
       <section id="experience" class="wrap">
         <div class="eyebrow reveal">05 · PROVEN TRACK RECORD</div>
-        <h2 class="display reveal" style="font-size: clamp(30px, 4vw, 54px); margin-top: 10px;">
-          Work <span class="roman">Experience</span>
-        </h2>
+        <div class="exp-header-row reveal">
+          <h2 class="display" style="font-size: clamp(30px, 4vw, 54px); margin-top: 10px;">
+            Work <span class="roman">Experience</span>
+          </h2>
+          <span class="exp-hint">Click any role to toggle details</span>
+        </div>
 
-        <div class="exp-list">
-          <!-- Role 1 -->
-          <div class="exp-row reveal">
-            <div class="exp-period">2023 – PRESENT<br/>MONTEVIDEO</div>
-            <div class="exp-role-company">
-              <h3>QA Specialist &amp; Automation Engineer</h3>
-              <div class="company">Net2phone (Montevideo Office)</div>
-            </div>
-            <div class="exp-desc">
-              Led end-to-end quality assurance for an enterprise omnichannel CCaaS platform (VoIP, Webhooks, WhatsApp, SMS, Social Media).
-              <ul class="exp-bullets">
-                <li>Designed and scaled automated regression suites using <strong>Playwright (TypeScript)</strong> integrated with <strong>GitHub Actions</strong> CI/CD, substantially reducing regression cycle times.</li>
-                <li>Created and tracked <strong>500+ test cases</strong> in <strong>Allure TestOps</strong>; maintained REST API test suites with automated JavaScript assertions in Postman.</li>
-                <li>Integrated AI and Model Context Protocol (MCP) tooling for synthetic test data generation and exploratory defect pattern analysis.</li>
-                <li>Automated repetitive provisioning routines with <strong>UiPath</strong>; validated database state via <strong>MySQL, SSH, and SFTP</strong>.</li>
-              </ul>
+        <div class="exp-accordion reveal">
+          <!-- Role 1: Net2phone (Open by default) -->
+          <div class="exp-item open">
+            <button class="exp-trigger" aria-expanded="true">
+              <div class="exp-badge">2023 – PRESENT</div>
+              <div class="exp-heading">
+                <h3 class="exp-title">QA Specialist &amp; Automation Engineer</h3>
+                <span class="exp-company">Net2phone · Montevideo Office</span>
+              </div>
+              <div class="exp-pills">
+                <span class="exp-pill">Playwright</span>
+                <span class="exp-pill">TypeScript</span>
+                <span class="exp-pill">GitHub Actions</span>
+              </div>
+              <div class="exp-toggle-icon">
+                <span class="toggle-bar horizontal"></span>
+                <span class="toggle-bar vertical"></span>
+              </div>
+            </button>
+
+            <div class="exp-drawer">
+              <div class="exp-drawer-inner">
+                <p class="exp-summary">
+                  Led end-to-end quality assurance for an enterprise omnichannel CCaaS platform spanning VoIP telephony, webhook streaming, WhatsApp, SMS, and real-time social channels.
+                </p>
+                <ul class="exp-points">
+                  <li>Designed and scaled automated regression suites using <strong>Playwright (TypeScript)</strong> integrated with <strong>GitHub Actions</strong> CI/CD, substantially reducing regression cycle times.</li>
+                  <li>Created and tracked <strong>500+ test cases</strong> in <strong>Allure TestOps</strong>; maintained REST API test suites with automated JavaScript assertions in Postman.</li>
+                  <li>Integrated AI and Model Context Protocol (MCP) tooling for synthetic test data generation and exploratory defect pattern analysis.</li>
+                  <li>Automated repetitive provisioning routines with <strong>UiPath</strong>; validated transactional database states via <strong>MySQL, SSH, and SFTP</strong>.</li>
+                </ul>
+                <div class="exp-tech-tags">
+                  <span class="tech-tag">Playwright</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">GitHub Actions CI/CD</span>
+                  <span class="tech-tag">Allure TestOps</span>
+                  <span class="tech-tag">Postman</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">UiPath</span>
+                  <span class="tech-tag">VoIP / CCaaS</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Role 2 -->
-          <div class="exp-row reveal">
-            <div class="exp-period">2021 – 2023<br/>MONTEVIDEO</div>
-            <div class="exp-role-company">
-              <h3>QA Engineer / Functional Tester</h3>
-              <div class="company">Pyxis</div>
-            </div>
-            <div class="exp-desc">
-              Delivered mission-critical QA for high-volume electronic payment and fintech platforms (Antel Pagos, NCAP) and enterprise e-commerce portals.
-              <ul class="exp-bullets">
-                <li>Executed REST and SOAP API testing using <strong>Postman</strong> and <strong>SoapUI</strong>, validating XML/JSON transaction payloads and authentication security.</li>
-                <li>Conducted cloud-based cross-browser and mobile compatibility testing with <strong>BrowserStack</strong>.</li>
-                <li>Validated relational databases via <strong>MySQL (SQL queries, joins, data integrity)</strong> and verified enterprise business flows in <strong>SAP SD</strong>.</li>
-                <li>Managed defect lifecycles and test runs in <strong>Jira</strong> and <strong>TestRail</strong> within Scrum teams.</li>
-              </ul>
+          <!-- Role 2: Pyxis -->
+          <div class="exp-item">
+            <button class="exp-trigger" aria-expanded="false">
+              <div class="exp-badge">2021 – 2023</div>
+              <div class="exp-heading">
+                <h3 class="exp-title">QA Engineer / Functional Tester</h3>
+                <span class="exp-company">Pyxis · Montevideo</span>
+              </div>
+              <div class="exp-pills">
+                <span class="exp-pill">Postman</span>
+                <span class="exp-pill">SoapUI</span>
+                <span class="exp-pill">MySQL</span>
+              </div>
+              <div class="exp-toggle-icon">
+                <span class="toggle-bar horizontal"></span>
+                <span class="toggle-bar vertical"></span>
+              </div>
+            </button>
+
+            <div class="exp-drawer">
+              <div class="exp-drawer-inner">
+                <p class="exp-summary">
+                  Delivered mission-critical QA for high-volume electronic payment and fintech platforms (Antel Pagos, NCAP) and enterprise e-commerce portals.
+                </p>
+                <ul class="exp-points">
+                  <li>Executed REST and SOAP API testing using <strong>Postman</strong> and <strong>SoapUI</strong>, validating XML/JSON transaction payloads and authentication security.</li>
+                  <li>Conducted cloud-based cross-browser and mobile compatibility testing with <strong>BrowserStack</strong>.</li>
+                  <li>Validated relational databases via <strong>MySQL (SQL queries, complex joins, data integrity)</strong> and verified enterprise business flows in <strong>SAP SD</strong>.</li>
+                  <li>Managed defect lifecycles and test runs in <strong>Jira</strong> and <strong>TestRail</strong> within Scrum teams.</li>
+                </ul>
+                <div class="exp-tech-tags">
+                  <span class="tech-tag">Postman</span>
+                  <span class="tech-tag">SoapUI</span>
+                  <span class="tech-tag">BrowserStack</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">SAP SD</span>
+                  <span class="tech-tag">Jira</span>
+                  <span class="tech-tag">TestRail</span>
+                  <span class="tech-tag">Fintech / Payments</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Role 3 -->
-          <div class="exp-row reveal">
-            <div class="exp-period">2019 – 2020<br/>MONTEVIDEO</div>
-            <div class="exp-role-company">
-              <h3>Functional Tester &amp; QA Analyst</h3>
-              <div class="company">T-Machine</div>
-            </div>
-            <div class="exp-desc">
-              Provided full-lifecycle QA for Uruguay's Ministry of Economy e-Government platform in an Agile/Scrum team.
-              <ul class="exp-bullets">
-                <li>Designed and executed functional, regression, and integration test suites for public administration workflows.</li>
-                <li>Conducted SOAP web service validation and tracked defect triage in Jira and TestRail.</li>
-              </ul>
+          <!-- Role 3: T-Machine -->
+          <div class="exp-item">
+            <button class="exp-trigger" aria-expanded="false">
+              <div class="exp-badge">2019 – 2020</div>
+              <div class="exp-heading">
+                <h3 class="exp-title">Functional Tester &amp; QA Analyst</h3>
+                <span class="exp-company">T-Machine · Montevideo</span>
+              </div>
+              <div class="exp-pills">
+                <span class="exp-pill">Manual QA</span>
+                <span class="exp-pill">SOAP</span>
+                <span class="exp-pill">Jira</span>
+              </div>
+              <div class="exp-toggle-icon">
+                <span class="toggle-bar horizontal"></span>
+                <span class="toggle-bar vertical"></span>
+              </div>
+            </button>
+
+            <div class="exp-drawer">
+              <div class="exp-drawer-inner">
+                <p class="exp-summary">
+                  Provided full-lifecycle QA for Uruguay's Ministry of Economy e-Government platform in an Agile/Scrum team.
+                </p>
+                <ul class="exp-points">
+                  <li>Designed and executed functional, regression, and integration test suites for public administration workflows.</li>
+                  <li>Conducted SOAP web service validation and tracked defect triage in <strong>Jira</strong> and <strong>TestRail</strong>.</li>
+                  <li>Collaborated closely with development squads to clarify business specifications and acceptance criteria.</li>
+                </ul>
+                <div class="exp-tech-tags">
+                  <span class="tech-tag">Manual Testing</span>
+                  <span class="tech-tag">SOAP Web Services</span>
+                  <span class="tech-tag">Jira</span>
+                  <span class="tech-tag">TestRail</span>
+                  <span class="tech-tag">Agile / Scrum</span>
+                  <span class="tech-tag">e-Government</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

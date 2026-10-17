@@ -126,4 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = mailtoUrl;
     });
   }
+
+  // 9. Interactive Experience Accordion
+  const expItems = document.querySelectorAll('.exp-item');
+  expItems.forEach((item) => {
+    const trigger = item.querySelector('.exp-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', !isOpen);
+    });
+  });
 });

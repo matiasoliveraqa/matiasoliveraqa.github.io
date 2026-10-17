@@ -112,22 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. Message Composer Form Submission
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('form-name')?.value || '';
-      const subject = document.getElementById('form-subject')?.value || 'Senior QA / SDET Opportunity';
-      const message = document.getElementById('form-message')?.value || '';
-
-      const bodyText = `Hi Matías,\n\nName: ${name}\n\n${message}`;
-      const mailtoUrl = `mailto:matiluzardo3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-      window.location.href = mailtoUrl;
-    });
-  }
-
-  // 9. Interactive Experience Accordion
+  // 8. Interactive Experience Accordion
   const expItems = document.querySelectorAll('.exp-item');
   expItems.forEach((item) => {
     const trigger = item.querySelector('.exp-trigger');

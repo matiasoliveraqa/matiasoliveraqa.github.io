@@ -17,14 +17,17 @@ Explore the deployed interactive portfolio at [**matiasoliveraqa.github.io**](ht
 
 ---
 
-## 🛠 Featured Automation Repositories
+## 🛠 Featured Projects & Frameworks
 
-Explore my technical test automation projects:
+Explore my technical projects:
 
-1. [**`playwright-enterprise-ts`**](https://github.com/matiasoliveraqa/playwright-enterprise-ts)
+1. [**`job-hunter`**](https://github.com/matiasoliveraqa/job-hunter)
+   - Autonomous, human-in-the-loop job search and application assistant built with Python, Playwright, and local AI agents. Queries public ATS APIs across 20,000+ tech companies, tailors ATS resumes per role, and pre-fills forms in headed Chromium.
+
+2. [**`playwright-enterprise-ts`**](https://github.com/matiasoliveraqa/playwright-enterprise-ts)
    - Enterprise End-to-End (E2E) & API test automation framework built with Playwright, TypeScript, Page Object Model (POM), custom dependency injection fixtures, and multi-browser CI matrix.
 
-2. [**`k6-api-performance-suite`**](https://github.com/matiasoliveraqa/k6-api-performance-suite)
+3. [**`k6-api-performance-suite`**](https://github.com/matiasoliveraqa/k6-api-performance-suite)
    - Distributed performance and API testing suite featuring Grafana k6 workload profiles (smoke, load, stress, spike), SLA thresholds, high-concurrency stateful mock engine, Newman collections, and containerized CI automation.
 
 ---

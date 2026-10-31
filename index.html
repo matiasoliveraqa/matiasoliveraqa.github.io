@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matías Olivera — Senior QA Engineer &amp; SDET</title>
   <meta name="description" content="Senior QA Automation Engineer &amp; SDET based in Montevideo. Playwright, TypeScript, API &amp; Performance Testing with k6." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Fonts: Supreme from Fontshare + Urbanist from Google Fonts -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=supreme@400,500,600&display=swap" rel="stylesheet">
+  <!-- Typography: Urbanist from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -133,73 +131,109 @@
         </div>
       </section>
 
-      <!-- ================= INTERACTIVE RUNNER ================= -->
-      <section id="runner" class="wrap">
-        <div class="eyebrow reveal">02 · PROOF OF WORK</div>
-        <h2 class="display reveal" style="font-size: clamp(30px, 4vw, 54px); margin-top: 10px;">
-          Live Test <span class="roman">Simulation</span>
-        </h2>
-        <p class="lead reveal" style="max-width: 600px; margin-top: 10px;">
-          Watch the automated test suite execute directly inside the simulated browser viewport while live assertions and timings register in real time.
-        </p>
+      <!-- ================= INTERACTIVE RUNNER (PINNED FULL-BLEED SHUTTER SCROLL) ================= -->
+      <section id="runner" class="runner-track">
+        <div class="runner-sticky-frame">
+          <!-- Full-Bleed Widescreen Test Studio (Revealed Layer) -->
+          <div class="runner-studio-stage">
+            <div class="runner-container" id="runner-container">
+              <div class="runner-top-bar">
+                <div class="runner-bar-brand">
+                  <div class="runner-tabs">
+                    <button class="runner-tab active" id="tab-e2e">
+                      Playwright E2E Flow
+                    </button>
+                    <button class="runner-tab" id="tab-perf">
+                      k6 Performance SLA
+                    </button>
+                  </div>
+                </div>
 
-        <div class="runner-container reveal">
-          <div class="runner-top-bar">
-            <div class="runner-tabs">
-              <button class="runner-tab active" id="tab-e2e">
-                Playwright E2E Flow
-              </button>
-              <button class="runner-tab" id="tab-perf">
-                k6 Performance SLA
-              </button>
-            </div>
+                <div class="runner-meta">
+                  <span class="runner-status ready" id="suite-status">READY</span>
+                  <span class="runner-timing">Duration: <strong id="exec-time">0.0s</strong></span>
+                  <button id="reopen-shutter-btn" class="btn btn-ghost runner-replay-btn" title="Replay Aperture Shutter Animation">
+                    ⟲ Replay Shutter
+                  </button>
+                  <button id="run-suite-btn" class="btn btn-light" style="padding: 8px 18px; font-size: 13px;">
+                    Run Test Suite <span class="arrow">▶</span>
+                  </button>
+                </div>
+              </div>
 
-            <div class="runner-meta">
-              <span class="runner-status ready" id="suite-status">READY</span>
-              <span style="font-size: 13px; color: var(--muted);">Duration: <strong id="exec-time" style="color: #fff;">0.0s</strong></span>
-              <button id="run-suite-btn" class="btn btn-light" style="padding: 8px 18px; font-size: 13px;">
-                Run Test Suite <span class="arrow">▶</span>
-              </button>
+              <div class="runner-grid">
+                <!-- Simulated Browser Viewport -->
+                <div class="virtual-browser">
+                  <div class="browser-header">
+                    <div class="browser-dots">
+                      <span class="browser-dot"></span>
+                      <span class="browser-dot"></span>
+                      <span class="browser-dot"></span>
+                    </div>
+                    <div class="browser-address" id="browser-url">
+                      https://store-staging.internal/login
+                    </div>
+                  </div>
+
+                  <div class="browser-viewport" id="browser-screen">
+                    <!-- Virtual App Screen dynamically rendered by testRunner.js -->
+                  </div>
+                </div>
+
+                <!-- Assertion & Diagnostics Inspector -->
+                <div class="assertions-panel">
+                  <div>
+                    <div class="assertions-header">
+                      <h4>TEST ASSERTIONS</h4>
+                      <span style="font-size: 11px; color: var(--faint);">PAGE OBJECT MODEL</span>
+                    </div>
+                    <div class="assertion-list" id="assertion-list">
+                      <!-- Assertions injected by testRunner.js -->
+                    </div>
+                  </div>
+
+                  <div class="runner-footer">
+                    <span style="font-size: 12px; color: var(--faint);">Cross-Browser: Chromium • Firefox • WebKit</span>
+                    <a href="https://github.com/matiasoliveraqa/playwright-enterprise-ts" target="_blank" rel="noopener noreferrer" style="font-size: 12.5px; color: var(--silver);">
+                      Inspect Spec ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="runner-grid">
-            <!-- Simulated Browser Viewport -->
-            <div class="virtual-browser">
-              <div class="browser-header">
-                <div class="browser-dots">
-                  <span class="browser-dot"></span>
-                  <span class="browser-dot"></span>
-                  <span class="browser-dot"></span>
-                </div>
-                <div class="browser-address" id="browser-url">
-                  https://store-staging.internal/login
-                </div>
-              </div>
-
-              <div class="browser-viewport" id="browser-screen">
-                <!-- Virtual App Screen dynamically rendered by testRunner.js -->
-              </div>
+          <!-- Minimalist Geometric Shutter Overlay (100vw x 100vh) - Seamless Solid Black -->
+          <div class="geometric-shutter" id="geometric-shutter">
+            <!-- 4 Solid Black Aperture Blades (No envelope lines when closed) -->
+            <div class="shutter-blade blade-top" id="blade-top">
+              <svg class="blade-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="0,0 100,0 50,50" fill="#000000" />
+              </svg>
             </div>
 
-            <!-- Assertion & Diagnostics Inspector -->
-            <div class="assertions-panel">
-              <div>
-                <div class="assertions-header">
-                  <h4>TEST ASSERTIONS</h4>
-                  <span style="font-size: 11px; color: var(--faint);">PAGE OBJECT MODEL</span>
-                </div>
-                <div class="assertion-list" id="assertion-list">
-                  <!-- Assertions injected by testRunner.js -->
-                </div>
-              </div>
+            <div class="shutter-blade blade-bottom" id="blade-bottom">
+              <svg class="blade-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="100,100 0,100 50,50" fill="#000000" />
+              </svg>
+            </div>
 
-              <div class="runner-footer">
-                <span style="font-size: 12px; color: var(--faint);">Cross-Browser: Chromium • Firefox • WebKit</span>
-                <a href="https://github.com/matiasoliveraqa/playwright-enterprise-ts" target="_blank" rel="noopener noreferrer" style="font-size: 12.5px; color: var(--silver);">
-                  Inspect Spec ↗
-                </a>
-              </div>
+            <div class="shutter-blade blade-left" id="blade-left">
+              <svg class="blade-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="0,100 0,0 50,50" fill="#000000" />
+              </svg>
+            </div>
+
+            <div class="shutter-blade blade-right" id="blade-right">
+              <svg class="blade-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="100,0 100,100 50,50" fill="#000000" />
+              </svg>
+            </div>
+
+            <!-- Minimalist Center Headline & Scroll Cue -->
+            <div class="shutter-headline" id="shutter-headline">
+              <h2 class="shutter-display">Live Test <span class="roman">Simulation</span></h2>
+              <span class="shutter-scroll-hint">Scroll to explore</span>
             </div>
           </div>
         </div>
@@ -217,20 +251,57 @@
 
         <div class="projects">
           <!-- Project 1: Job Hunter -->
-          <div class="proj reveal">
+          <div class="proj reveal" data-project="job-hunter">
+            <div class="proj-border-beam" aria-hidden="true"></div>
             <div class="proj-top">
               <span class="proj-tag">AI AGENTS &amp; BROWSER AUTOMATION · PYTHON / PLAYWRIGHT / REACT</span>
               <span style="font-size: 13px; color: var(--faint);">2026</span>
             </div>
             <h3>Job Hunter: Autonomous Job Search &amp; Application Assistant</h3>
-            <p>
-              An intelligent, human-in-the-loop application assistant built with Python, Playwright, and local AI agents. Queries public ATS endpoints across 20,000+ tech companies (Ashby, Greenhouse, Lever, Workable, BambooHR), tailors ATS-compliant resumes per role, and pre-fills application forms in headed Chromium for final human review.
-            </p>
-            <div class="proj-features">
-              <div class="proj-feat-item">Concurrent ATS scanner querying public API endpoints across 20,000+ companies</div>
-              <div class="proj-feat-item">Stealth headed Playwright automation with native browser fingerprints for form pre-filling</div>
-              <div class="proj-feat-item">Local AI agent producing tailored 1-page PDF resumes and application audit records</div>
+
+            <!-- Micro-inspection tab toggle -->
+            <div class="proj-tabs-nav">
+              <button class="proj-tab-btn active" data-tab="overview">Overview</button>
+              <button class="proj-tab-btn" data-tab="cli">Quick Run (Terminal)</button>
             </div>
+
+            <!-- Tab 1: Overview -->
+            <div class="proj-tab-pane pane-overview active">
+              <p>
+                An intelligent, human-in-the-loop application assistant built with Python, Playwright, and local AI agents. Queries public ATS endpoints across 20,000+ tech companies (Ashby, Greenhouse, Lever, Workable, BambooHR), tailors ATS-compliant resumes per role, and pre-fills application forms in headed Chromium for final human review.
+              </p>
+              <div class="proj-features">
+                <div class="proj-feat-item">Concurrent ATS scanner querying public API endpoints across 20,000+ companies</div>
+                <div class="proj-feat-item">Stealth headed Playwright automation with native browser fingerprints for form pre-filling</div>
+                <div class="proj-feat-item">Local AI agent producing tailored 1-page PDF resumes and application audit records</div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Quick Run (CLI Terminal) -->
+            <div class="proj-tab-pane pane-cli">
+              <div class="proj-cli-box">
+                <div class="proj-cli-header">
+                  <div class="cli-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="cli-lang">bash // local run</span>
+                  <button class="cli-copy-btn" data-copy="git clone https://github.com/matiasoliveraqa/job-hunter.git&#10;cd job-hunter&#10;./start.sh">
+                    <span class="lbl-copy">Copy Command</span>
+                    <span class="lbl-copied">Copied!</span>
+                  </button>
+                </div>
+                <pre class="proj-cli-code"><code><span class="c-comment"># 1. Clone repository &amp; enter directory</span>
+<span class="c-cmd">git clone</span> https://github.com/matiasoliveraqa/job-hunter.git
+<span class="c-cmd">cd</span> job-hunter
+
+<span class="c-comment"># 2. Launch local AI copilot &amp; Playwright browser</span>
+./start.sh   <span class="c-comment"># Windows: .\start.bat</span></code></pre>
+              </div>
+              <div class="proj-cli-meta">
+                <span>Stack: Python 3.10+ • Playwright Stealth • FastAPI • React 19</span>
+              </div>
+            </div>
+
             <div class="proj-actions">
               <a href="https://github.com/matiasoliveraqa/job-hunter" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                 View Repository on GitHub <span class="arrow">↗</span>
@@ -239,20 +310,57 @@
           </div>
 
           <!-- Project 2: Playwright Enterprise TS -->
-          <div class="proj reveal">
+          <div class="proj reveal" data-project="playwright-enterprise">
+            <div class="proj-border-beam" aria-hidden="true"></div>
             <div class="proj-top">
               <span class="proj-tag">E2E TEST AUTOMATION · TYPESCRIPT</span>
               <span style="font-size: 13px; color: var(--faint);">2026</span>
             </div>
             <h3>Enterprise Playwright Automation Architecture</h3>
-            <p>
-              A fully configured end-to-end testing repository implementing the Page Object Model (POM), custom fixtures, parallel cross-browser execution (Chromium, Firefox, WebKit, Mobile Safari), and automated Allure TestOps reporting via GitHub Actions.
-            </p>
-            <div class="proj-features">
-              <div class="proj-feat-item">Modular Page Object Model with strict TypeScript typing</div>
-              <div class="proj-feat-item">Custom test fixtures injecting page instances and isolated storage state</div>
-              <div class="proj-feat-item">GitHub Actions CI pipeline archiving traces, video captures, and test reports</div>
+
+            <!-- Micro-inspection tab toggle -->
+            <div class="proj-tabs-nav">
+              <button class="proj-tab-btn active" data-tab="overview">Overview</button>
+              <button class="proj-tab-btn" data-tab="cli">Quick Run (Terminal)</button>
             </div>
+
+            <!-- Tab 1: Overview -->
+            <div class="proj-tab-pane pane-overview active">
+              <p>
+                A fully configured end-to-end testing repository implementing the Page Object Model (POM), custom fixtures, parallel cross-browser execution (Chromium, Firefox, WebKit, Mobile Safari), and automated Allure TestOps reporting via GitHub Actions.
+              </p>
+              <div class="proj-features">
+                <div class="proj-feat-item">Modular Page Object Model with strict TypeScript typing</div>
+                <div class="proj-feat-item">Custom test fixtures injecting page instances and isolated storage state</div>
+                <div class="proj-feat-item">GitHub Actions CI pipeline archiving traces, video captures, and test reports</div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Quick Run (CLI Terminal) -->
+            <div class="proj-tab-pane pane-cli">
+              <div class="proj-cli-box">
+                <div class="proj-cli-header">
+                  <div class="cli-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="cli-lang">bash // local run</span>
+                  <button class="cli-copy-btn" data-copy="git clone https://github.com/matiasoliveraqa/playwright-enterprise-ts.git&#10;cd playwright-enterprise-ts &amp;&amp; npm install&#10;npm run test:headed:slow">
+                    <span class="lbl-copy">Copy Command</span>
+                    <span class="lbl-copied">Copied!</span>
+                  </button>
+                </div>
+                <pre class="proj-cli-code"><code><span class="c-comment"># 1. Clone &amp; install dependencies</span>
+<span class="c-cmd">git clone</span> https://github.com/matiasoliveraqa/playwright-enterprise-ts.git
+<span class="c-cmd">cd</span> playwright-enterprise-ts &amp;&amp; <span class="c-cmd">npm install</span>
+
+<span class="c-comment"># 2. Run visual E2E checkout suite with slowMo</span>
+<span class="c-cmd">npm run</span> test:headed:slow</code></pre>
+              </div>
+              <div class="proj-cli-meta">
+                <span>Output: 30 atomic assertions • Chromium / WebKit • Allure TestOps report</span>
+              </div>
+            </div>
+
             <div class="proj-actions">
               <a href="https://github.com/matiasoliveraqa/playwright-enterprise-ts" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                 View Repository on GitHub <span class="arrow">↗</span>
@@ -264,20 +372,58 @@
           </div>
 
           <!-- Project 3: k6 API Performance Suite -->
-          <div class="proj reveal">
+          <div class="proj reveal" data-project="k6-performance">
+            <div class="proj-border-beam" aria-hidden="true"></div>
             <div class="proj-top">
               <span class="proj-tag">PERFORMANCE &amp; SRE · GRAFANA K6</span>
               <span style="font-size: 13px; color: var(--faint);">2026</span>
             </div>
             <h3>k6 API Performance &amp; Load Testing Suite</h3>
-            <p>
-              High-concurrency load testing framework verifying API response times, latency SLAs (p95 &lt; 250ms), and financial transaction idempotency under stress. Features a built-in mock engine and Postman/Newman contract verification.
-            </p>
-            <div class="proj-features">
-              <div class="proj-feat-item">Smoke, Load, Stress (up to 300 VUs), and Spike traffic profiles</div>
-              <div class="proj-feat-item">Idempotency replay testing preventing duplicate payments under concurrency</div>
-              <div class="proj-feat-item">Automated HTML report generation and containerized execution via Docker Compose</div>
+
+            <!-- Micro-inspection tab toggle -->
+            <div class="proj-tabs-nav">
+              <button class="proj-tab-btn active" data-tab="overview">Overview</button>
+              <button class="proj-tab-btn" data-tab="cli">Quick Run (Terminal)</button>
             </div>
+
+            <!-- Tab 1: Overview -->
+            <div class="proj-tab-pane pane-overview active">
+              <p>
+                High-concurrency load testing framework verifying API response times, latency SLAs (p95 &lt; 250ms), and financial transaction idempotency under stress. Features a built-in mock engine and Postman/Newman contract verification.
+              </p>
+              <div class="proj-features">
+                <div class="proj-feat-item">Smoke, Load, Stress (up to 300 VUs), and Spike traffic profiles</div>
+                <div class="proj-feat-item">Idempotency replay testing preventing duplicate payments under concurrency</div>
+                <div class="proj-feat-item">Automated HTML report generation and containerized execution via Docker Compose</div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Quick Run (CLI Terminal) -->
+            <div class="proj-tab-pane pane-cli">
+              <div class="proj-cli-box">
+                <div class="proj-cli-header">
+                  <div class="cli-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="cli-lang">bash // local run</span>
+                  <button class="cli-copy-btn" data-copy="git clone https://github.com/matiasoliveraqa/k6-api-performance-suite.git&#10;cd k6-api-performance-suite &amp;&amp; npm install&#10;npm run start:mock &amp;&#10;npm run test:smoke">
+                    <span class="lbl-copy">Copy Command</span>
+                    <span class="lbl-copied">Copied!</span>
+                  </button>
+                </div>
+                <pre class="proj-cli-code"><code><span class="c-comment"># 1. Clone &amp; install dependencies</span>
+<span class="c-cmd">git clone</span> https://github.com/matiasoliveraqa/k6-api-performance-suite.git
+<span class="c-cmd">cd</span> k6-api-performance-suite &amp;&amp; <span class="c-cmd">npm install</span>
+
+<span class="c-comment"># 2. Start mock API &amp; execute k6 performance SLA benchmark</span>
+<span class="c-cmd">npm run</span> start:mock &amp;
+<span class="c-cmd">npm run</span> test:smoke</code></pre>
+              </div>
+              <div class="proj-cli-meta">
+                <span>Output: 1,100+ check assertions • p95 &lt; 200ms • HTML report generation</span>
+              </div>
+            </div>
+
             <div class="proj-actions">
               <a href="https://github.com/matiasoliveraqa/k6-api-performance-suite" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                 View Repository on GitHub <span class="arrow">↗</span>
@@ -299,7 +445,6 @@
 
         <div class="principles-grid">
           <div class="principle-card reveal">
-            <div class="principle-num">01 // RESILIENT SELECTORS</div>
             <h3 class="principle-title">Semantic Locators Over Brittle Paths</h3>
             <p class="principle-desc">
               Tests strictly target user-facing ARIA roles (`getByRole`, `getByLabel`, `getByTestId`), completely avoiding fragile CSS hierarchies and auto-generated classes that break across UI redesigns.
@@ -307,7 +452,6 @@
           </div>
 
           <div class="principle-card reveal">
-            <div class="principle-num">02 // DATA ISOLATION</div>
             <h3 class="principle-title">Atomic Tests &amp; Independent State</h3>
             <p class="principle-desc">
               Every automated test scenario initializes its own deterministic test data or mocks. Tests never rely on side-effects or order of execution, enabling fearless parallel execution across runners.
@@ -315,7 +459,6 @@
           </div>
 
           <div class="principle-card reveal">
-            <div class="principle-num">03 // RELIABILITY PROTOCOL</div>
             <h3 class="principle-title">Zero-Tolerance Flakiness Protocol</h3>
             <p class="principle-desc">
               A flaky test is treated as a defect in test engineering. Non-deterministic runs are automatically quarantined, inspected with Playwright trace viewer recordings, and rewritten for stability.
@@ -323,7 +466,6 @@
           </div>
 
           <div class="principle-card reveal">
-            <div class="principle-num">04 // SHIFT-LEFT GATES</div>
             <h3 class="principle-title">Automated Pull Request Blocking Gates</h3>
             <p class="principle-desc">
               Quality gates run on every pull request. Broken assertions, latency threshold regressions, or contract schema mismatches block merging automatically before reaching staging.
@@ -334,7 +476,7 @@
 
       <!-- ================= WORK EXPERIENCE ================= -->
       <section id="experience" class="wrap">
-        <div class="eyebrow reveal">05 · PROVEN TRACK RECORD</div>
+        <div class="eyebrow reveal">05 · CAREER TRAJECTORY</div>
         <div class="exp-header-row reveal">
           <h2 class="display" style="font-size: clamp(30px, 4vw, 54px); margin-top: 10px;">
             Work <span class="roman">Experience</span>
@@ -343,9 +485,9 @@
         </div>
 
         <div class="exp-accordion reveal">
-          <!-- Role 1: Net2phone (Open by default) -->
-          <div class="exp-item open">
-            <button class="exp-trigger" aria-expanded="true">
+          <!-- Role 1: Net2phone -->
+          <div class="exp-item">
+            <button class="exp-trigger" aria-expanded="false">
               <div class="exp-badge">2023 – PRESENT</div>
               <div class="exp-heading">
                 <h3 class="exp-title">QA Specialist &amp; Automation Engineer</h3>
@@ -582,8 +724,9 @@
         </div>
       </div>
 
-      <!-- Giant Footer Wordmark with Parallax -->
+      <!-- Giant Footer Wordmark with Parallax & Liquid Chrome Flow -->
       <div class="wordmark-wrap">
+        <div class="wordmark-ambient-glow" aria-hidden="true">MATÍAS OLIVERA</div>
         <div class="wordmark" id="wordmark">MATÍAS OLIVERA</div>
       </div>
 
